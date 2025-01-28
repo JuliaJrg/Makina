@@ -1,0 +1,55 @@
+stages:
+  - code_quality
+  - test
+  - build
+  - deploy
+
+code_quality:
+  stage: code_quality
+  tags:
+    - qa
+    - dev
+    - main
+  script:
+    - echo "###############################################"
+    - echo "Running code quality checks..."
+    - echo "###############################################"
+    - ./CI/code_quality.sh
+
+unit_tests:
+  stage: test
+  tags:
+    - tests
+    - dev
+    - main
+  script:
+    - echo "###############################################"
+    - echo "Running unit tests..."
+    - echo "###############################################"
+    - ./CI/unit_tests.sh
+
+build:
+  stage: build
+  tags:
+    - build
+    - main
+  script:
+    - echo "###############################################"
+    - echo "Building the project..."
+    - echo "###############################################"
+    - ./CI/build_project.sh
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+deploy:
+  stage: deploy
+  tags:
+    - deploy
+    - main
+  script:
+    - echo "###############################################"
+    - echo "Deploying the project to Hostinger..."
+    - echo "###############################################"
+    - ./CI/deploy_project.sh
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
