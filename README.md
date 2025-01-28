@@ -43,7 +43,6 @@ En fonction des règles et des conditions établies avant le lancement de la sim
 
 - [@romdmr](https://github.com/romdmr)
 - [@QUsOK](https://github.com/QUsOK)
-- [@LilCisaille](https://github.com/LilCisaille)
 - [@JuliaJrg](https://github.com/JuliaJrg)
 - [@Gungnir54](https://github.com/Gungnir54)
 - [@nathangassmann](https://github.com/nathangassmann)
